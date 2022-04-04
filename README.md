@@ -62,4 +62,7 @@ Here is the basic structure with stub or empty files in place.
     ├── index.html
     └── js
         └── lab.js
+        
+        
+This is a test, Hello.   
 ```

@@ -5,6 +5,21 @@ main {
     font-size: 200%
 }
 
+#intro {
+  background-color: #52B9D2;
+  width:650px;
+  min-height: 300px;
+  padding: 50px;
+  margin:50px;
+  border: solid 10px #041E25;
+  font-size:12px;
+}
+
+
 #my-portrait {
-    width: 350px;
+  display: inline-block;
+  float:right;
+  height: 250px;
+  overflow: hidden;
+  border-radius: 50%;
 }

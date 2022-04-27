@@ -1,0 +1,9 @@
+p{
+  font-weight: normal;
+}
+#lab7_photo {
+  display: inline-block;
+  float:right;
+  height: 250px;
+  overflow: hidden;
+}

@@ -1,0 +1,24 @@
+p{
+  font-weight: normal;
+}
+#lab11_photo {
+  display: inline-block;
+  float:right;
+  height: 250px;
+  overflow: hidden;
+}
+.selected1 {
+  color: red;
+}
+
+.selected2 {
+  color: blue;
+}
+
+.selected3 {
+  color: orange;
+}
+
+.selected5 {
+  background-color: purple;
+}

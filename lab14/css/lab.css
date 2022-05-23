@@ -1,0 +1,27 @@
+p{
+  font-weight: normal;
+}
+#lab14_photo {
+  display: inline-block;
+  float:right;
+  height: 250px;
+  overflow: hidden;
+}
+
+#content {
+    padding: 10px;
+    background-color: LightBlue;
+    border: solid 1px #333333;
+    min-height: 50vh;
+}
+
+
+h2 {
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}

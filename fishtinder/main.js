@@ -3,9 +3,9 @@
 function init() {
     var scene = new THREE.Scene();
 
+    var box = getBox(1, 1, 1);
 
-
-  scene.add(mesh);
+    scene.add(box);
 
     var camera = new THREE.PerspectiveCamera(
       45,
@@ -13,6 +13,11 @@ function init() {
       1,
       1000
     );
+    camera.position.x = 1;
+    camera.position.y = 2;
+    camera.position.z = 10;
+
+    camera.lookAt(new THREE.Vector3(0,0,0));
 
     var renderer = new THREE.WebGLRenderer();
     renderer.setSize(window.innerWidth, window.innerHeight);

@@ -27,7 +27,7 @@ function init() {
       camera
   );
 }
-
+//makes a simple cube, material and geometry needed to creat mesh
 function getBox(w,h,d){
   var geometry = new THREE.BoxGeometry(1,1,1);
   var material = new THREE.MeshBasicMaterial({

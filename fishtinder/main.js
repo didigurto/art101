@@ -74,7 +74,7 @@ function init() {
 
 	loader.load('assets/models/fish/AlbetirSnailfishTexture01.obj', function (object) {
 		var colorMap = textureLoader.load('assets/models/fish/Snailfish_BaseColor.png');
-		var normalMap = textureLoader.load('/assets/models/fish/Snailfish_Normal.png');
+		var normalMap = textureLoader.load('assets/models/fish/Snailfish_Normal.png');
 		var faceMaterial = getMaterial('standard', 'rgb(255, 255, 255)');
 
 		object.traverse(function(child) {
@@ -158,7 +158,7 @@ function getSpotLight(intensity, color) {
 
 function update(renderer, scene, camera, controls) {
 	controls.update();
-	renderer.render(scene, camera);
+	// renderer.render(scene, camera);
   renderer.render(backgroundScene , backgroundCamera );
             renderer.render(scene, camera);
 

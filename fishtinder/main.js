@@ -56,7 +56,7 @@ function init() {
 	var textureLoader = new THREE.TextureLoader();
 
 	loader.load('assets/models/fish/AlbetirSnailfishTexture01.obj', function (object) {
-		var colorMap = textureLoader.load('/assets/models/fish/Snailfish_BaseColor.png');
+		var colorMap = textureLoader.load('assets/models/fish/Snailfish_BaseColor.png');
 		//var bumpMap = textureLoader.load('/assets/models/head/Face_Disp.jpg');
 		var faceMaterial = getMaterial('standard', 'rgb(255, 255, 255)');
 

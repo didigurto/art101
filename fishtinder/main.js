@@ -26,14 +26,31 @@ function init() {
 	gui.add(lightRight.position, 'z', -50, 50);
 
 	// load the environment map
-	var path = 'assets/cubemap/';
-	var format = '.jpg';
-	var fileNames = ['px', 'nx', 'py', 'ny', 'pz', 'nz'];
+	// var path = 'assets/cubemap/';
+	// var format = '.jpg';
+	// var fileNames = ['px', 'nx', 'py', 'ny', 'pz', 'nz'];
+  //
+	// var reflectionCube = new THREE.CubeTextureLoader().load(fileNames.map(function(fileName) {
+	// 	return path + fileName + format;
+	// }));
+	// scene.background = reflectionCube;
 
-	var reflectionCube = new THREE.CubeTextureLoader().load(fileNames.map(function(fileName) {
-		return path + fileName + format;
-	}));
-	scene.background = reflectionCube;
+  // Load the background texture
+        var texture = THREE.ImageUtils.loadTexture( 'assets/models/fish/underwater_ocean.jpg' );
+        var backgroundMesh = new THREE.Mesh(
+            new THREE.PlaneGeometry(2, 2, 0),
+            new THREE.MeshBasicMaterial({
+                map: texture
+            }));
+
+        backgroundMesh .material.depthTest = false;
+        backgroundMesh .material.depthWrite = false;
+
+        // Create your background scene
+        var backgroundScene = new THREE.Scene();
+        var backgroundCamera = new THREE.Camera();
+        backgroundScene .add(backgroundCamera );
+        backgroundScene .add(backgroundMesh );
 
 	// add other objects to the scene
 	scene.add(lightLeft);
@@ -47,8 +64,8 @@ function init() {
 		1000 // far clipping plane
 	);
 	camera.position.z = 20;
-	camera.position.x = 0;
-	camera.position.y = 5;
+	camera.position.x = 5;
+	camera.position.y = 10;
 	camera.lookAt(new THREE.Vector3(0, 0, 0));
 
 	// load external geometry
@@ -57,7 +74,7 @@ function init() {
 
 	loader.load('assets/models/fish/AlbetirSnailfishTexture01.obj', function (object) {
 		var colorMap = textureLoader.load('assets/models/fish/Snailfish_BaseColor.png');
-		//var bumpMap = textureLoader.load('/assets/models/head/Face_Disp.jpg');
+		var normalMap = textureLoader.load('/assets/models/fish/Snailfish_Normal.png');
 		var faceMaterial = getMaterial('standard', 'rgb(255, 255, 255)');
 
 		object.traverse(function(child) {
@@ -142,6 +159,9 @@ function getSpotLight(intensity, color) {
 function update(renderer, scene, camera, controls) {
 	controls.update();
 	renderer.render(scene, camera);
+  renderer.render(backgroundScene , backgroundCamera );
+            renderer.render(scene, camera);
+
 	requestAnimationFrame(function() {
 		update(renderer, scene, camera, controls);
 	});

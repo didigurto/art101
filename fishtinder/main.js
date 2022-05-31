@@ -36,7 +36,8 @@ function init() {
 	// scene.background = reflectionCube;
 
   // Load the background texture
-        var texture = textureLoader.load( 'assets/models/fish/underwater_ocean.jpg' );
+        // var texture = textureLoader.load('assets/models/fish/underwater_ocean.jpg' );
+        var texture = THREE.ImageUtils.loadTexture( '1.jpg' );
         var backgroundMesh = new THREE.Mesh(
             new THREE.PlaneGeometry(2, 2, 0),
             new THREE.MeshBasicMaterial({

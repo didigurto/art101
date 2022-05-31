@@ -25,33 +25,23 @@ function init() {
 	gui.add(lightRight.position, 'y', -50, 50);
 	gui.add(lightRight.position, 'z', -50, 50);
 
-	// load the environment map
-	// var path = 'assets/cubemap/';
-	// var format = '.jpg';
-	// var fileNames = ['px', 'nx', 'py', 'ny', 'pz', 'nz'];
-  //
-	// var reflectionCube = new THREE.CubeTextureLoader().load(fileNames.map(function(fileName) {
-	// 	return path + fileName + format;
-	// }));
-	// scene.background = reflectionCube;
-
   // Load the background texture
         // var texture = textureLoader.load('assets/models/fish/underwater_ocean.jpg' );
-        var texture = THREE.ImageUtils.loadTexture( 'assets/models/fish/underwater_ocean.jpg' );
-        var backgroundMesh = new THREE.Mesh(
-            new THREE.PlaneGeometry(2, 2, 0),
-            new THREE.MeshBasicMaterial({
-                map: texture
-            }));
-
-        backgroundMesh .material.depthTest = false;
-        backgroundMesh .material.depthWrite = false;
-
-        // Create your background scene
-        var backgroundScene = new THREE.Scene();
-        var backgroundCamera = new THREE.Camera();
-        backgroundScene.add(backgroundCamera );
-        backgroundScene.add(backgroundMesh );
+        // var texture = THREE.ImageUtils.loadTexture( 'assets/models/fish/underwater_ocean.jpg' );
+        // var backgroundMesh = new THREE.Mesh(
+        //     new THREE.PlaneGeometry(2, 2, 0),
+        //     new THREE.MeshBasicMaterial({
+        //         map: texture
+        //     }));
+        //
+        // backgroundMesh .material.depthTest = false;
+        // backgroundMesh .material.depthWrite = false;
+        //
+        // // Create your background scene
+        // var backgroundScene = new THREE.Scene();
+        // var backgroundCamera = new THREE.Camera();
+        // backgroundScene.add(backgroundCamera );
+        // backgroundScene.add(backgroundMesh );
 
 	// add other objects to the scene
 	scene.add(lightLeft);
@@ -157,11 +147,14 @@ function getSpotLight(intensity, color) {
 	return light;
 }
 
+//background image
+const loader = new THREE.TextureLoader();
+scene.background = loader.load( 'assets/models/fish/underwater_ocean.jpg' );
+
 function update(renderer, scene, camera, controls) {
 	controls.update();
-	// renderer.render(scene, camera);
-  renderer.render(backgroundScene , backgroundCamera );
-            renderer.render(scene, camera);
+	renderer.render(scene, camera);
+
 
 	requestAnimationFrame(function() {
 		update(renderer, scene, camera, controls);
